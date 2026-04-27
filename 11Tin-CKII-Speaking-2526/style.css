@@ -71,8 +71,8 @@ select {
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     max-width: 800px;
     width: 100%;
-    margin-top: 80px; 
-    margin-bottom: 80px; 
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 #unit-title {
@@ -119,13 +119,6 @@ select {
     margin-top: 20px;
     font-size: 0.95rem;
     font-weight: bold;
-}
-
-@media (max-width: 600px) {
-    .legends { flex-direction: column; gap: 10px; }
-    .card { padding: 25px; }
-    .timer { font-size: 1.4rem; top: 15px; left: 15px; padding: 8px 15px;}
-    .nav-container { top: 70px; position: static; margin-bottom: 20px;}
 }
 
 /* Make legends interactive */
@@ -240,4 +233,32 @@ select {
 
 #modal-body strong {
     color: #222;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .legends { flex-direction: column; gap: 10px; }
+
+    /* Reduce large desktop margins so things fit better on mobile */
+    .card {
+        padding: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .timer { font-size: 1.4rem; top: 15px; left: 15px; padding: 8px 15px; }
+
+    /* Make the dropdown sit naturally at the top of the page */
+    .nav-container {
+        position: static;
+        margin-top: 60px; /* Leaves room so the timer doesn't overlap it */
+        margin-bottom: 10px;
+    }
+
+    /* Make the next button sit naturally at the bottom of the page */
+    .controls {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }
