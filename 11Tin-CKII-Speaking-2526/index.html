@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="timer" class="timer" title="Click to Start/Reset">1:30</div>
+    
+    <div class="nav-container">
+        <select id="topic-selector"></select>
+    </div>
+
+    <main id="main-content" class="card">
+        <h2 id="unit-title">Unit</h2>
+        <h3 id="question-text">Question</h3>
+        
+        <p id="script-text">Script loads here...</p>
+        
+        <div class="legends">
+            <span class="legend-grammar">■ Noteworthy Grammar</span>
+            <span class="legend-vocab">■ Noteworthy Vocabulary</span>
+        </div>
+    </main>
+
+    <div class="controls">
+        <button id="next-btn">Next Topic</button>
+    </div>
+    <div id="explanation-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">Explanations</h3>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

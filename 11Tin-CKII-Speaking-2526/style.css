@@ -1,0 +1,243 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    /* Removed cursor: pointer to fix background clicking confusion */
+}
+
+/* Timer */
+.timer {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    font-size: 1.8rem;
+    font-family: monospace;
+    font-weight: bold;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.timer:hover {
+    background: #eef2f5;
+}
+
+.timer.running {
+    color: #d9534f; /* Red hue when active */
+}
+
+/* Navigation */
+.nav-container {
+    position: fixed;
+    top: 25px;
+    z-index: 100;
+}
+
+select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 400px;
+}
+
+/* Main Card */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 800px;
+    width: 100%;
+    margin-top: 80px; 
+    margin-bottom: 80px; 
+}
+
+#unit-title {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#question-text {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+#script-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Highlights */
+.highlight-grammar {
+    background-color: rgba(0, 86, 179, 0.15);
+    border-bottom: 2px solid #0056b3;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.highlight-vocab {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-bottom: 2px solid #28a745;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* Legends */
+.legends {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .legends { flex-direction: column; gap: 10px; }
+    .card { padding: 25px; }
+    .timer { font-size: 1.4rem; top: 15px; left: 15px; padding: 8px 15px;}
+    .nav-container { top: 70px; position: static; margin-bottom: 20px;}
+}
+
+/* Make legends interactive */
+.legend-grammar, .legend-vocab {
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.legend-grammar {
+    color: #0056b3;
+}
+
+.legend-vocab {
+    color: #28a745;
+}
+
+.legend-grammar:hover {
+    background-color: rgba(0, 86, 179, 0.1);
+}
+
+.legend-vocab:hover {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+/* Controls */
+.controls {
+    position: fixed;
+    bottom: 30px;
+    z-index: 100;
+}
+
+#next-btn {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#next-btn:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    /* Removed cursor: default so it behaves like a normal overlay */
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+#modal-title {
+    margin-bottom: 20px;
+    color: #222;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+#modal-body p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+#modal-body strong {
+    color: #222;
+}
